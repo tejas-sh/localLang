@@ -19,7 +19,7 @@ export default function App() {
         <button onClick={SpeechRecognition.startListening}>Start</button>
         <button onClick={SpeechRecognition.stopListening}>Stop</button>
         <button onClick={resetTranscript}>Reset</button>
-        <p>{transcript}</p>
+        <Text>{transcript}</Text>
       </div>
   );
 }
