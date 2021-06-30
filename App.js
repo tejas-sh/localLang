@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
 
   return (
       <div>
-        <p>Microphone: {listening ? 'on' : 'off'}</p>
+        <Text>Microphone: {listening ? 'on' : 'off'}</Text>
         <button onClick={SpeechRecognition.startListening}>Start</button>
         <button onClick={SpeechRecognition.stopListening}>Stop</button>
         <button onClick={resetTranscript}>Reset</button>
