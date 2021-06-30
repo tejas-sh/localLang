@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text,Button, View } from 'react-native';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 export default function App() {
@@ -10,25 +10,20 @@ export default function App() {
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
 
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
-  }
+
 
   return (
-      <div>
-        <button onClick={SpeechRecognition.startListening}>Start</button>
-        <button onClick={SpeechRecognition.stopListening}>Stop</button>
-        <button onClick={resetTranscript}>Reset</button>
+      <View style={styles.container}>
+        <Button onPress={SpeechRecognition.startListening} title={"Start"}/>
+        <Button title={"Stop"} onPress={SpeechRecognition.stopListening}/>
+        <Button onPress={resetTranscript} title={"Reset"}/>
         <Text>{transcript}</Text>
-      </div>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        marginTop: 50,
+    },
 });
